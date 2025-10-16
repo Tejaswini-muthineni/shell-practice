@@ -1,5 +1,5 @@
 #!/bin/bash
-read PIN
+read -s PIN
 echo "pin is : $PIN"
 P1=$1
 echo "$P1 : Hi ABhi, how are you doing?"
