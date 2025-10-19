@@ -5,6 +5,7 @@ echo " user id is : $USER_ID "
 
 if [ $USER_ID -ne 0 ]; then
     echo "user needs root access"
+    exit 1
 fi
 
 
