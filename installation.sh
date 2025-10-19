@@ -4,6 +4,7 @@ USER_ID=$(id -u)
 
 if [ $USER_ID -eq 0 ]; then
     echo "user has root access"
+    echo " id -u is $USER_ID "
 fi
 
 echo "$?"
