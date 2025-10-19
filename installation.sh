@@ -12,3 +12,4 @@ if [ $? -ne 0 ]; then
     echo "dnf installation failed"
 else
     echo "installation sucess"
+fi
