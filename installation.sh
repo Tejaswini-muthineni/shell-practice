@@ -1,13 +1,11 @@
 #!/bin/bash
 
-USER_ID=$(id -u)
-echo " user id is : $USER_ID "
+USERID=$(id -u)
 
-if [ $USER_ID -ne 0 ]; then
-    echo "user needs root access"
-    exit 1
+if [ $USERID -ne 0 ]; then
+    echo "ERROR:: Please run this script with root privelege"
+    exit 1 # failure is other than 0
 fi
-
 
 dnf install mysql -y
 
