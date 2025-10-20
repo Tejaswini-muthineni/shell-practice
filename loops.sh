@@ -13,7 +13,7 @@ fi
 dnf install mysql -y
 
 if [ $? -ne 0 ]; then
-    echo "mysql installation.... $R failed $N"
+    echo -e "mysql installation.... $R failed $N"
 else 
-    echo "my sql installation...$G success $N"
+    echo -e "my sql installation...$G success $N"
 fi
