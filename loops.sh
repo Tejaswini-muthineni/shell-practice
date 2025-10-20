@@ -19,21 +19,13 @@ VALIDATE()
     fi
 }
 
-dnf list installed mysql
-
+for PACKAGE in $@
+do 
+dnf list installed $PACKAGE
 if [ $? -ne 0 ]; then
-    dnf install mysql -y
-    VALIDATE $? "mysql"
+    dnf install $PACKAGE -y
+    VALIDATE $? "$PACKAGE"
 else
-    echo -e "mysql is already installed $G skipping $N "
+    echo -e "$PACKAGE is already installed $G skipping $N "
 fi
-
-dnf list installed nginx
-
-if [ $? -ne 0 ]; then
-    dnf install nginx -y
-    VALIDATE $? "nginx"
-else
-    echo -e "nginx is already installed $G skipping $N "
-fi
-
+done
