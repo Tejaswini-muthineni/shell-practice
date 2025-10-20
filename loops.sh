@@ -10,10 +10,30 @@ if [ $USER -ne 0 ]; then
     exit 1
 fi
 
-dnf install mysql -y
+VALIDATE()
+{
+    if [ $1 -ne 0 ]; then
+        echo -e "$2 installation.... $R failed $N"
+    else 
+        echo -e "$2 installation...$G success $N"
+    fi
+}
+
+dnf list installed mysql
 
 if [ $? -ne 0 ]; then
-    echo -e "mysql installation.... $R failed $N"
-else 
-    echo -e "my sql installation...$G success $N"
+    dnf install mysql -y
+    VALIDATE $? "mysql"
+else
+    echo -e "mysql is already installed $G skipping $N "
 fi
+
+dnf list installed nginx
+
+if [ $? -ne 0 ]; then
+    dnf install nginx -y
+    VALIDATE $? "nginx"
+else
+    echo -e "nginx is already installed $G skipping $N "
+fi
+
