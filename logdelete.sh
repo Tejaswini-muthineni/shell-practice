@@ -20,7 +20,7 @@ if [ ! -d $SOURCE_DIR ]; then
     exit 1
 fi
 
-FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f)
+FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtype +14)
 
 #printf "Files to delete:\n%s\n" "$FILES_TO_DELETE"
 
