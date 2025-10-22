@@ -21,6 +21,7 @@ if [ ! -d $SOURCE_DIR ]; then
 fi
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f)
+echo $?
 printf "Files to delete:\n%s\n" "$FILES_TO_DELETE"
 
 while IFS= read -r filepath
