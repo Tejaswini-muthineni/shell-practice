@@ -24,14 +24,14 @@ FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f)
 
 #printf "Files to delete:\n%s\n" "$FILES_TO_DELETE"
 
-if [ ! -z $FILES_TO_DELETE]; then
+if [ ! -z $FILES_TO_DELETE ]; then
     while IFS= read -r filepath
     do
         echo "file path: $filapath" 
         echo "Deleting the file: $filepath"
         rm -rf $filepath
         echo "Deleted the file: $filepath"
-    done <<< $FILES_TO_DELETE
+    done <<< "$FILES_TO_DELETE"
 else
     echo "no files to delete"
 fi
