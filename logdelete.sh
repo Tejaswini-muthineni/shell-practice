@@ -21,13 +21,17 @@ if [ ! -d $SOURCE_DIR ]; then
 fi
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f)
-echo $?
-printf "Files to delete:\n%s\n" "$FILES_TO_DELETE"
 
-while IFS= read -r filepath
-do
-    echo "file path: $filapath" 
-    echo "Deleting the file: $filepath"
-    rm -rf $filepath
-    echo "Deleted the file: $filepath"
-done <<< $FILES_TO_DELETE
+#printf "Files to delete:\n%s\n" "$FILES_TO_DELETE"
+
+if [ ! -z $FILES_TO_DELETE]; then
+    while IFS= read -r filepath
+    do
+        echo "file path: $filapath" 
+        echo "Deleting the file: $filepath"
+        rm -rf $filepath
+        echo "Deleted the file: $filepath"
+    done <<< $FILES_TO_DELETE
+else
+    echo "no files to delete"
+fi
